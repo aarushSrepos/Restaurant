@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+{% block content %}
+{% for i in status %}
+{% if i.status == "N" %}
+<section class="section-1" id="1" style='background-color:#eb4034; width: 20%; margin-right:auto; margin-left:auto;'>
+{% elif i.status == "P" %}
+<section class="section-1" id="1" style='background-color:#ff7b00; width: 20%; margin-right:auto; margin-left:auto;'>
+{% elif i.status == "C" %}
+<section class="section-1" id="1" style='background-color:#0dff00; width: 20%; margin-right:auto; margin-left:auto;'>
+{% endif %}
+<div class="container">
+<header class="section-header"> <h2 class="h1">{{i.id}}</h2>
+</header>
+<div class="learn">
+</div>
+</div>
+{% if i.status == 'P'%}
+<a href="/{{ status.id }}">
+<button class="btn-learn" type="button">find out more about the order</button>
+</a>
+{% elif i.status == 'N' %}
+<a href="/{{ status.id }}/createOrder">
+<button class="btn-learn" type="button">start a new order?</button>
+</a>
+</section>
+{% endfor %}
+
+{% endblock content%}
+
+</body>
+</html>
